@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var memeTextField: UITextField!
     @IBOutlet weak var memeTextFieldBottom: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,15 +111,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     func save() {
         
-        /*
-        let meme = Meme( text: textField.text!, image:
-        mageView.image, memedImage: memedImage)
-        */
-        
-        //TODO Finish initialization of meme object
+        let meme = Meme(textTop: memeTextField.text, textBottom: memeTextFieldBottom.text, image: imageView.image!)
         
         
+    }
     
+    //Generating Merged Image
+    
+    func generateMemedImage() -> UIImage
+    {
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return memedImage
     }
 
 

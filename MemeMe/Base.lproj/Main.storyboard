@@ -82,6 +82,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="imageView" destination="QKY-IA-ZX5" id="g5M-7y-Oct"/>
                         <outlet property="memeTextField" destination="EVW-en-Mg9" id="pW9-HD-Ywc"/>
                         <outlet property="memeTextFieldBottom" destination="wTa-60-Abw" id="2ih-eV-yMx"/>
                     </connections>
