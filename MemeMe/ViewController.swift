@@ -105,6 +105,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.CGRectValue().height
     }
+    
+    //Creating MemeMe Object
+    
+    func save() {
+        
+        /*
+        let meme = Meme( text: textField.text!, image:
+        mageView.image, memedImage: memedImage)
+        */
+        
+        //TODO Finish initialization of meme object
+        
+        
+    
+    }
 
 
 }
