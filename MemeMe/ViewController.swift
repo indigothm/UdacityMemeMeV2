@@ -8,25 +8,50 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var keyboardSize: CGFloat!
 
+    @IBOutlet weak var cameraButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var memeTextField: UITextField!
     @IBOutlet weak var memeTextFieldBottom: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var memeImageOutlet: UIImageView!
+    
+    @IBAction func cameraDidTouch(sender: UIBarButtonItem) {
+        var newPicker = UIImagePickerController()
+        newPicker.delegate = self
+        newPicker.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(newPicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func albumDidTouch(sender: UIBarButtonItem) {
+        var newPicker = UIImagePickerController()
+        newPicker.delegate = self
+        newPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(newPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.memeImageOutlet.image = image
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        cameraButtonOutlet.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
         let memeTextAttributes = [
             
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName: UIColor.whiteColor(),
-            NSBackgroundColorAttributeName: UIColor.clearColor(),
+            //NSBackgroundColorAttributeName: UIColor.clearColor(),
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName: 3.0
+            NSStrokeWidthAttributeName: -3.0
         
         ]
         
@@ -89,6 +114,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillDissapear() {
+        
+        // TODO: Fix the keyboard glitch
+        
         self.view.frame.origin.y += keyboardSize
     }
     
@@ -116,6 +144,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // TODO: Implement image picker
+    
     //Generating Merged Image
     
     func generateMemedImage() -> UIImage
@@ -128,7 +158,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
+        // TODO: Hide Toolbar and Navbar
+        
         return memedImage
+        
     }
 
 

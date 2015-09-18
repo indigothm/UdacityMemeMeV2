@@ -26,9 +26,17 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JXi-Ch-jBe"/>
-                                    <barButtonItem systemItem="camera" id="MS4-X5-Px3"/>
+                                    <barButtonItem systemItem="camera" id="MS4-X5-Px3">
+                                        <connections>
+                                            <action selector="cameraDidTouch:" destination="vXZ-lx-hvc" id="U1L-Kt-545"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="100" style="plain" systemItem="fixedSpace" id="KVq-Bf-8iy"/>
-                                    <barButtonItem title="Album" id="LOM-hB-Eo0"/>
+                                    <barButtonItem title="Album" id="LOM-hB-Eo0">
+                                        <connections>
+                                            <action selector="albumDidTouch:" destination="vXZ-lx-hvc" id="CXO-Nv-gdJ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="x0V-Pj-7kO"/>
                                 </items>
                             </toolbar>
@@ -82,7 +90,9 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="cameraButtonOutlet" destination="MS4-X5-Px3" id="fWF-DQ-N3r"/>
                         <outlet property="imageView" destination="QKY-IA-ZX5" id="g5M-7y-Oct"/>
+                        <outlet property="memeImageOutlet" destination="QKY-IA-ZX5" id="dGv-Ws-Erg"/>
                         <outlet property="memeTextField" destination="EVW-en-Mg9" id="pW9-HD-Ywc"/>
                         <outlet property="memeTextFieldBottom" destination="wTa-60-Abw" id="2ih-eV-yMx"/>
                     </connections>
