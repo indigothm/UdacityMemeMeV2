@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var keyboardSize: CGFloat!
+    var keyboardSize: CGFloat = 0.0
 
     @IBOutlet weak var cameraButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var memeTextField: UITextField!
@@ -114,9 +114,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     }
     
     func keyboardWillDissapear() {
-        
-        // TODO: Fix the keyboard glitch
-        
+                
         self.view.frame.origin.y += keyboardSize
     }
     
