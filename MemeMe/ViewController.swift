@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     
     @IBAction func shareDidTouch(sender: UIBarButtonItem) {
-        let memedImage = self.generateMemedImage()
+        let memedImage = generateMemedImage()
         let activity = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         activity.completionWithItemsHandler = {(activityType:String?, completed: Bool,
@@ -49,20 +49,20 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         let newPicker = UIImagePickerController()
         newPicker.delegate = self
         newPicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(newPicker, animated: true, completion: nil)
+        presentViewController(newPicker, animated: true, completion: nil)
     }
     
     @IBAction func albumDidTouch(sender: UIBarButtonItem) {
         let newPicker = UIImagePickerController()
         newPicker.delegate = self
         newPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(newPicker, animated: true, completion: nil)
+        presentViewController(newPicker, animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.memeImageOutlet.image = image
+        dismissViewControllerAnimated(true, completion: nil)
+        memeImageOutlet.image = image
         shareButtonOutlet.enabled = true
     }
 
@@ -85,8 +85,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         memeTextFieldBottom.defaultTextAttributes = memeTextAttributes
         memeTextField.textAlignment = .Center
         memeTextFieldBottom.textAlignment = .Center
-        self.memeTextField.delegate = self
-        self.memeTextFieldBottom.delegate = self
+        
+        memeTextField.delegate = self
+        memeTextFieldBottom.delegate = self
         
         
     }
@@ -100,14 +101,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
 
@@ -122,7 +123,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         if memeTextFieldBottom.editing {
             keyboardWillDissapear()
         }
-        self.view.endEditing(true)
+        view.endEditing(true)
         return false
     }
     
@@ -141,13 +142,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func keyboardWillDissapear() {
                 
-        self.view.frame.origin.y += keyboardSize
+        view.frame.origin.y += keyboardSize
     }
     
     func keyboardWillShow(notification: NSNotification) {
 
         if memeTextFieldBottom.editing {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
             keyboardSize = getKeyboardHeight(notification)
         }
         
@@ -163,14 +164,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func save() {
         
-        _ = Meme(textTop: memeTextField.text!, textBottom: memeTextFieldBottom.text!, image: imageView.image!)
+        _ = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!)
         
         
     }
     
     func toolbarAppear (appearBool: Bool) {
-        self.toolbar.hidden = appearBool
-        self.navigationBar.hidden = appearBool
+        toolbar.hidden = appearBool
+        navigationBar.hidden = appearBool
     }
     
     
@@ -182,8 +183,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         toolbarAppear(true)
         
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
