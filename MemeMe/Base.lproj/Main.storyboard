@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pandora.Hearts.full.71748" translatesAutoresizingMaskIntoConstraints="NO" id="QKY-IA-ZX5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QKY-IA-ZX5">
                                 <rect key="frame" x="0.0" y="44" width="600" height="512"/>
                                 <animations/>
                             </imageView>
@@ -115,7 +115,4 @@
             </objects>
         </scene>
     </scenes>
-    <resources>
-        <image name="Pandora.Hearts.full.71748" width="8158" height="6058"/>
-    </resources>
 </document>

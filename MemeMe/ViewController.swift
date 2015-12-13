@@ -69,7 +69,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         cameraButtonOutlet.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
@@ -77,7 +76,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
             
             NSStrokeColorAttributeName: UIColor.blackColor(),
             NSForegroundColorAttributeName: UIColor.whiteColor(),
-            //NSBackgroundColorAttributeName: UIColor.clearColor(),
             NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName: -3.0
         
@@ -175,7 +173,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         self.navigationBar.hidden = appearBool
     }
     
-    // TODO: Implement image picker
     
     //Generating Merged Image
     
@@ -192,7 +189,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO: Hide Toolbar and Navbar
         toolbarAppear(false)
         
         return memedImage
