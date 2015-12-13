@@ -17,16 +17,43 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var memeTextFieldBottom: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var memeImageOutlet: UIImageView!
+    @IBOutlet weak var shareButtonOutlet: UIBarButtonItem!
+    @IBOutlet weak var toolbar: UIToolbar!
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    
+    @IBAction func shareDidTouch(sender: UIBarButtonItem) {
+        let memedImage = self.generateMemedImage()
+        let activity = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        activity.completionWithItemsHandler = {(activityType:String?, completed: Bool,
+            returnedItems: [AnyObject]?, error: NSError?) in
+            
+            if (completed) {
+                if activityType == UIActivityTypeSaveToCameraRoll {
+                    print("save")
+                    self.save()
+                    activity.dismissViewControllerAnimated(true, completion: nil)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                }
+            }
+        }
+        
+        
+        presentViewController(activity, animated: true, completion: nil)
+        
+    }
     
     @IBAction func cameraDidTouch(sender: UIBarButtonItem) {
-        var newPicker = UIImagePickerController()
+        let newPicker = UIImagePickerController()
         newPicker.delegate = self
         newPicker.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(newPicker, animated: true, completion: nil)
     }
     
     @IBAction func albumDidTouch(sender: UIBarButtonItem) {
-        var newPicker = UIImagePickerController()
+        let newPicker = UIImagePickerController()
         newPicker.delegate = self
         newPicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(newPicker, animated: true, completion: nil)
@@ -36,6 +63,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         self.dismissViewControllerAnimated(true, completion: nil)
         self.memeImageOutlet.image = image
+        shareButtonOutlet.enabled = true
     }
 
     
@@ -137,9 +165,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func save() {
         
-        let meme = Meme(textTop: memeTextField.text, textBottom: memeTextFieldBottom.text, image: imageView.image!)
+        _ = Meme(textTop: memeTextField.text!, textBottom: memeTextFieldBottom.text!, image: imageView.image!)
         
         
+    }
+    
+    func toolbarAppear (appearBool: Bool) {
+        self.toolbar.hidden = appearBool
+        self.navigationBar.hidden = appearBool
     }
     
     // TODO: Implement image picker
@@ -148,6 +181,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func generateMemedImage() -> UIImage
     {
+        
+        toolbarAppear(true)
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
@@ -157,6 +193,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         UIGraphicsEndImageContext()
         
         // TODO: Hide Toolbar and Navbar
+        toolbarAppear(false)
         
         return memedImage
         
