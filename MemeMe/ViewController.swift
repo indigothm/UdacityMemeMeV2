@@ -164,7 +164,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func save() {
         
-        _ = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!)
+        _ = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!, imageMemeStored: generateMemedImage())
         
         
     }
