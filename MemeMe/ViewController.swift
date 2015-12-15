@@ -22,6 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     
+    @IBAction func cancelDidTouch(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func shareDidTouch(sender: UIBarButtonItem) {
         let memedImage = generateMemedImage()
         let activity = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -164,7 +168,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func save() {
         
-        _ = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!, imageMemeStored: generateMemedImage())
+        let meme = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!, imageMemeStored: generateMemedImage())
+        
+        let object = UIApplication.sharedApplication().delegate
+        
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
         
         
     }
