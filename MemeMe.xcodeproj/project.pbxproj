@@ -91,10 +91,10 @@
 			children = (
 				3FAEFE4E1BAB26CA00A3A50B /* Meme.swift */,
 				3FA9536F1BA8BA2E000D2E0D /* AppDelegate.swift */,
-				3FA953711BA8BA2E000D2E0D /* ViewController.swift */,
 				3FC2A1091C200D27003E201A /* MemeHistoryTableViewController.swift */,
 				3FC2A10B1C200D3F003E201A /* MemeTableViewCell.swift */,
 				3FA953731BA8BA2E000D2E0D /* Main.storyboard */,
+				3FA953711BA8BA2E000D2E0D /* ViewController.swift */,
 				3F9359BB1C205120004E5EBF /* DetailsViewController.swift */,
 				3FC2A10F1C201F4A003E201A /* MemeCollectionViewCell.swift */,
 				3FC2A10D1C201910003E201A /* MemeHistoryCollectionViewController.swift */,

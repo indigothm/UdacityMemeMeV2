@@ -11,32 +11,31 @@ import UIKit
 class DetailsViewController: UIViewController {
     
     var imgD: UIImage?
+    var currentM: Meme?
 
     @IBOutlet weak var imgV: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         imgV.image = imgD
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
+        
+    }
+    
+    func onEdit(sender: AnyObject) {
+        
+        let editController = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        
+        editController.editMeme = currentM
+        
+        self.navigationController!.pushViewController(editController, animated: true)
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

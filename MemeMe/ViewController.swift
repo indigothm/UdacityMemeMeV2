@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var keyboardSize: CGFloat = 0.0
+    var editMeme: Meme?
 
     @IBOutlet weak var cameraButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var memeTextField: UITextField!
@@ -92,6 +93,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         
         memeTextField.delegate = self
         memeTextFieldBottom.delegate = self
+        
+        if let cm = editMeme {
+            imageView.image = cm.image
+            memeTextField.text = cm.top
+            memeTextFieldBottom.text = cm.bottom
+        }
         
         
     }
