@@ -29,7 +29,7 @@ class MemeHistoryCollectionViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         
         let space: CGFloat = 3.0
-        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
         
         flowL.minimumInteritemSpacing = space
         flowL.minimumLineSpacing = space
@@ -38,7 +38,7 @@ class MemeHistoryCollectionViewController: UICollectionViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.collectionGrid!.reloadData()
+        collectionGrid!.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,13 +71,13 @@ class MemeHistoryCollectionViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsViewController") as! DetailsViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailsViewController") as! DetailsViewController
         
         detailController.imgD = memes[indexPath.row].imageMemeStored
         detailController.currentM = memes[indexPath.row]
         
         
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         
     }
 

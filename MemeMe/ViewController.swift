@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     
     @IBAction func cancelDidTouch(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shareDidTouch(sender: UIBarButtonItem) {
@@ -175,7 +175,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     func save() {
         
-        let meme = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: self.imageView.image!, imageMemeStored: generateMemedImage())
+        let meme = Meme(top: memeTextField.text!, bottom: memeTextFieldBottom.text!, image: imageView.image!, imageMemeStored: generateMemedImage())
         
         let object = UIApplication.sharedApplication().delegate
         

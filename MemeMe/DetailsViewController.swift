@@ -19,17 +19,17 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         
         imgV.image = imgD
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "onEdit:")
         
     }
     
     func onEdit(sender: AnyObject) {
         
-        let editController = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
+        let editController = storyboard!.instantiateViewControllerWithIdentifier("ViewController") as! ViewController
         
         editController.editMeme = currentM
         
-        self.navigationController!.pushViewController(editController, animated: true)
+        navigationController!.pushViewController(editController, animated: true)
         
     }
 
