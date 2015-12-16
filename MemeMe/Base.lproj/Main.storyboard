@@ -24,7 +24,8 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="large" translatesAutoresizingMaskIntoConstraints="NO" id="DqC-Pm-1VQ">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="99"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="180" id="tz3-3t-zGo"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="RM0-a4-pg4"/>
+                                                <constraint firstAttribute="width" constant="180" id="kqq-9a-oaZ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvJ-vK-guV">
@@ -35,11 +36,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="OvJ-vK-guV" firstAttribute="leading" secondItem="DqC-Pm-1VQ" secondAttribute="trailing" constant="25" id="3sh-eq-RSG"/>
-                                        <constraint firstAttribute="bottom" secondItem="DqC-Pm-1VQ" secondAttribute="bottom" id="Ot2-GC-BJE"/>
-                                        <constraint firstItem="DqC-Pm-1VQ" firstAttribute="top" secondItem="ovk-MR-fbD" secondAttribute="top" id="VDX-Ph-NJT"/>
-                                        <constraint firstItem="OvJ-vK-guV" firstAttribute="centerY" secondItem="ovk-MR-fbD" secondAttribute="centerY" id="VPc-GF-o2J"/>
-                                        <constraint firstItem="DqC-Pm-1VQ" firstAttribute="leading" secondItem="ovk-MR-fbD" secondAttribute="leading" id="aT2-En-sOs"/>
+                                        <constraint firstAttribute="bottom" secondItem="DqC-Pm-1VQ" secondAttribute="bottom" id="QHY-vl-9Qx"/>
+                                        <constraint firstItem="DqC-Pm-1VQ" firstAttribute="top" secondItem="ovk-MR-fbD" secondAttribute="top" id="SYm-pf-l4l"/>
+                                        <constraint firstItem="OvJ-vK-guV" firstAttribute="centerY" secondItem="ovk-MR-fbD" secondAttribute="centerY" id="VbM-Dw-UKR"/>
+                                        <constraint firstItem="OvJ-vK-guV" firstAttribute="leading" secondItem="DqC-Pm-1VQ" secondAttribute="trailing" constant="25" id="apt-mM-al8"/>
+                                        <constraint firstItem="DqC-Pm-1VQ" firstAttribute="leading" secondItem="ovk-MR-fbD" secondAttribute="leading" id="jRo-gQ-Z8k"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -329,6 +330,6 @@
         <image name="large" width="500" height="594"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ICP-tI-Vhn"/>
+        <segue reference="wc6-JQ-R2h"/>
     </inferredMetricsTieBreakers>
 </document>

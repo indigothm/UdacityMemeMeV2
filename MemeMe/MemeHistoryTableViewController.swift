@@ -19,18 +19,13 @@ class MemeHistoryTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.tableHistoryView!.reloadData()
+        tableHistoryView!.reloadData()
 
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,13 +59,13 @@ class MemeHistoryTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let detailController = self.storyboard!.instantiateViewControllerWithIdentifier("DetailsViewController") as! DetailsViewController
+        let detailController = storyboard!.instantiateViewControllerWithIdentifier("DetailsViewController") as! DetailsViewController
         
         detailController.imgD = memes[indexPath.row].imageMemeStored
         detailController.currentM = memes[indexPath.row]
         
         
-        self.navigationController!.pushViewController(detailController, animated: true)
+        navigationController!.pushViewController(detailController, animated: true)
         
     }
     
@@ -82,7 +77,7 @@ class MemeHistoryTableViewController: UITableViewController {
             let appDelegate = object as! AppDelegate
             appDelegate.memes.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            self.tableHistoryView!.reloadData()
+            tableHistoryView!.reloadData()
             
             
             
